@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Nib — Animated Stories & Visual Worlds</title>
+  <meta name="description" content="Studio Nib — an independent animation studio telling stories frame by frame." />
+
+  <!-- Security: only allow assets from this site, Google Fonts and YouTube -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self';
+                 style-src 'self' https://fonts.googleapis.com;
+                 font-src https://fonts.gstatic.com;
+                 img-src 'self' https://img.youtube.com data:;
+                 frame-src https://www.youtube.com https://www.youtube-nocookie.com;
+                 connect-src 'self' https://api.web3forms.com;
+                 object-src 'none';
+                 base-uri 'self';
+                 form-action 'self'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23e8552d'/%3E%3Cpath d='M40 30l28 20-28 20z' fill='%23fff'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css?v=9" />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader__center">
+      <span class="loader__eyebrow" data-tagline></span>
+      <span class="loader__name"><span class="loader__name-inner" data-studio></span></span>
+    </div>
+    <div class="loader__progress">
+      <div class="loader__bar"><span id="loaderBarFill"></span></div>
+      <span class="loader__count"><span id="loaderCount">0</span>%</span>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand" data-studio>Studio Nib</a>
+    <nav class="nav__links">
+      <a href="#work" class="nav__link">Work</a>
+      <a href="#about" class="nav__link">About</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </nav>
+    <button class="nav__menu" id="navMenu" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__media" id="heroMedia"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow"><span data-tagline></span></p>
+      <h1 class="hero__title" id="heroTitle"></h1>
+      <button class="hero__play" id="heroPlay">
+        <span class="hero__play-icon">▶</span>
+        <span class="hero__play-text">Watch the featured film</span>
+      </button>
+    </div>
+    <div class="hero__scroll">Scroll<span></span></div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>Animation</span><span>•</span><span>Storytelling</span><span>•</span>
+      <span>Character Design</span><span>•</span><span>Motion</span><span>•</span>
+      <span>Short Films</span><span>•</span><span>Visual Worlds</span><span>•</span>
+      <span>Animation</span><span>•</span><span>Storytelling</span><span>•</span>
+      <span>Character Design</span><span>•</span><span>Motion</span><span>•</span>
+      <span>Short Films</span><span>•</span><span>Visual Worlds</span><span>•</span>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="section-head">
+      <span class="section-head__index">01</span>
+      <h2 class="section-head__title">Selected Work</h2>
+      <p class="section-head__sub">A collection of animated stories. Click any film to play.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-head">
+      <span class="section-head__index">02</span>
+      <h2 class="section-head__title">About</h2>
+    </div>
+    <div class="about__body">
+      <p class="about__text" data-about></p>
+      <div class="about__stats">
+        <div class="stat"><span class="stat__num" id="statFilms">0</span><span class="stat__label">Films</span></div>
+        <div class="stat"><span class="stat__num">∞</span><span class="stat__label">Frames drawn</span></div>
+        <div class="stat"><span class="stat__num">100%</span><span class="stat__label">Handcrafted</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-head">
+      <span class="section-head__index">03</span>
+      <h2 class="section-head__title">Let's make<br />something.</h2>
+    </div>
+    <button class="contact__cta" id="contactOpen" data-cursor="hover">Send a message</button>
+    <p class="contact__direct">Or email directly · <a href="#" class="contact__email" data-email>studionibanime@gmail.com</a></p>
+    <div class="contact__socials" id="socials"></div>
+  </section>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> <span data-studio></span></span>
+    <span>Built with love &amp; caffeine</span>
+  </footer>
+
+  <!-- LIGHTBOX PLAYER -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">✕</button>
+    <div class="lightbox__inner">
+      <div class="lightbox__frame" id="lightboxFrame"></div>
+      <div class="lightbox__meta">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT MODAL (Web3Forms) -->
+  <div class="cmodal" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cmodalTitle">
+    <div class="cmodal__panel">
+      <div class="cmodal__head">
+        <div>
+          <span class="cmodal__eyebrow">Send a message</span>
+          <h3 class="cmodal__title" id="cmodalTitle">Let's talk.</h3>
+        </div>
+        <button type="button" class="cmodal__close" id="contactClose" aria-label="Close">✕</button>
+      </div>
+
+      <form class="cmodal__form" id="contactForm" novalidate>
+        <input type="hidden" name="access_key" id="cfKey" />
+        <input type="hidden" name="subject" value="New message from the Studio Nib site" />
+        <input type="hidden" name="from_name" value="Studio Nib · website" />
+        <!-- honeypot: bots fill this, humans don't see it -->
+        <input type="checkbox" name="botcheck" class="cmodal__botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <label class="cmodal__field">
+          <span>Your name</span>
+          <input name="name" required placeholder="Jane Doe" autocomplete="name" />
+        </label>
+        <label class="cmodal__field">
+          <span>Your email</span>
+          <input name="email" type="email" required placeholder="jane@company.com" autocomplete="email" />
+        </label>
+        <label class="cmodal__field">
+          <span>Message</span>
+          <textarea name="message" required rows="4" placeholder="Tell me about your project…"></textarea>
+        </label>
+
+        <p class="cmodal__error" id="cfError" hidden></p>
+        <button type="submit" class="cmodal__submit" id="cfSubmit" data-cursor="hover">Send message</button>
+        <p class="cmodal__hint">Or email directly · <a href="#" data-email></a></p>
+      </form>
+
+      <div class="cmodal__success" id="cfSuccess" hidden>
+        <span class="cmodal__check">✓</span>
+        <h4>Message sent!</h4>
+        <p>Thanks for reaching out — I'll get back to you at the email you provided, usually within a day.</p>
+        <button type="button" class="cmodal__submit" id="cfDone" data-cursor="hover">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js?v=9"></script>
+  <script src="js/main.js?v=8"></script>
+</body>
+</html>

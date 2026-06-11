@@ -1,0 +1,22 @@
+# Cloudflare Pages reads this file and applies these headers to responses.
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# Security headers for every page (your CSP already lives in index.html's meta tag)
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# Long-cache the rarely-changed, version-stamped assets (busted with ?v=N)
+/css/*
+  Cache-Control: public, max-age=31536000
+
+/js/main.js
+  Cache-Control: public, max-age=31536000
+
+# data.js holds your editable content (videos, key, socials). Keep it always
+# fresh so edits go live immediately instead of being stuck behind a cache.
+/js/data.js
+  Cache-Control: no-cache
