@@ -4,7 +4,7 @@ A cinematic portfolio site for [Studio Nib](https://www.youtube.com/@StudioNibAn
 an independent animation studio. Videos live on YouTube; this site embeds and
 presents them with a clean, studio-style design.
 
-**Live site:** https://animation-portfolio.pages.dev <!-- update once Cloudflare gives you the real URL -->
+**Live site:** [https://animation-portfolio.pages.dev](https://studionib.studio-nib.workers.dev) <!-- update once Cloudflare gives you the real URL -->
 **YouTube:** https://www.youtube.com/@StudioNibAnime
 
 Built as a plain static site — HTML, CSS, and vanilla JavaScript. No build step,
